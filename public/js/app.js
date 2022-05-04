@@ -2565,7 +2565,7 @@ function Student() {
   };
 
   var getStudents = function getStudents() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://larareact.test/api/students").then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/students").then(function (response) {
       if (response.status === 200) {
         setStudents(response.data.data ? response.data.data : []);
       }
@@ -2577,7 +2577,7 @@ function Student() {
   };
 
   var addStudent = function addStudent() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://larareact.test/api/create-student", newStudentData).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("api/create-student", newStudentData).then(function (response) {
       var newStudents = _toConsumableArray(students);
 
       newStudents.push(response.data);
@@ -2603,7 +2603,7 @@ function Student() {
         email = editStudentData.email,
         phone = editStudentData.phone;
     setIsLoading(true);
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("http://larareact.test/api/create-student", {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("api/create-student", {
       first_name: first_name,
       last_name: last_name,
       email: email,
@@ -2627,7 +2627,7 @@ function Student() {
 
   var deletStudent = function deletStudent(id) {
     setIsLoading(true);
-    axios__WEBPACK_IMPORTED_MODULE_1___default().delete("http://larareact.test/api/student/" + id).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().delete("api/student/" + id).then(function (response) {
       setIsLoading(false);
       getStudents();
     })["catch"](function (error) {

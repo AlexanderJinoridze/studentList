@@ -56,7 +56,7 @@ export default function Student () {
 
     const getStudents = () => {
         axios
-            .get("http://larareact.test/api/students")
+            .get("api/students")
             .then((response) => {
                 if (response.status === 200) {
                     setStudents(response.data.data ? response.data.data : []);
@@ -70,7 +70,7 @@ export default function Student () {
     const addStudent = () => {
         axios
             .post(
-                "http://larareact.test/api/create-student",
+                "api/create-student",
                 newStudentData
             )
             .then((response) => {
@@ -101,7 +101,7 @@ export default function Student () {
         setIsLoading(true);
 
         axios
-            .post("http://larareact.test/api/create-student", {
+            .post("api/create-student", {
                 first_name,
                 last_name,
                 email,
@@ -123,7 +123,7 @@ export default function Student () {
     const deletStudent = (id) => {
         setIsLoading(true);
         axios
-            .delete("http://larareact.test/api/student/" + id)
+            .delete("api/student/" + id)
             .then((response) => {
                 setIsLoading(false);
                 getStudents();
